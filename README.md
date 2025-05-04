@@ -1,4 +1,7 @@
 # MusicMOE
+
+Download midi dataset and place them under /data: [rwc pop](https://drive.google.com/file/d/1xeWFc_cfOReBoKbjeR1D0fUvO4mbzaae/view?usp=sharing).
+
 Create new conda env and run
 
 ```pip install -r requirements.txt```
