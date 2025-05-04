@@ -1,4 +1,6 @@
 # MusicMOE
+Create new conda env and run
+```pip install -r requirements.txt```
 
-to preprocess the midi files into tensor (input to the model):
-'''python preprocess_large_midi_dataset.py -f /path/to/folder -n mydataset'''
+To preprocess the midi files into tensor (input to the model), run
+```python preprocess_large_midi_dataset.py -f /path/to/folder -n mydataset```
