@@ -119,15 +119,9 @@ def create_npy_dataset_from_midi(folder, max_polyphony, dataset_name, ins_ids='a
     #     midi_files = midi_files[:max_idx]
     # midi_files = [midi_file.replace('FixChannel10', 'rwc_chord').replace('SMF_SYNC', 'MIDI.CHORD') for midi_file in midi_files]
     midi_files = []
-    if scan_subfolders:
-        for root, dirs, files in os.walk(folder):
-            for file in files:
-                if file.endswith('.mid') or file.endswith('.MID'):
-                    midi_files.append(os.path.join(root, file))
-    else:
-        for file in os.listdir(folder):
-            if file.endswith('.mid') or file.endswith('.MID'):
-                midi_files.append(os.path.join(folder, file))
+    for i in os.listdir(folder):
+        if i.endswith('.MID') or i.endswith('.mid'):
+            midi_files.append(os.path.join(folder, i)
     if max_idx is not None:
         midi_files = midi_files[:max_idx]
     print(f'Processing {len(midi_files)} files')
