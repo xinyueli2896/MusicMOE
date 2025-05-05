@@ -131,6 +131,7 @@ def create_npy_dataset_from_midi(folder, max_polyphony, dataset_name, ins_ids='a
     results_data = [result[0] for result in results]
     results_shift = [result[1] for result in results]
     # np.save(f'data/{dataset_name}.npy', np.concatenate(results, axis=0))
+    os.makedirs('data', exist_ok=True)
     torch.save(torch.cat(results_data, dim=0), f'data/{dataset_name}.pt')
     torch.save(torch.cat(results_shift, dim=0), f'data/{dataset_name}.pitch_shift_range.pt')
     lengths = [len(data) for data in results_data]
