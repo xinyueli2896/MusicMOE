@@ -113,11 +113,23 @@ def create_npy_dataset_from_midi(folder, max_polyphony, dataset_name, ins_ids='a
     combine the data from all midi files in a folder to a single tensor
     '''
 
-    with open("output_rwc.json", "r", encoding="utf-8") as f:
-        midi_files = json.load(f)
+    # with open("output_rwc.json", "r", encoding="utf-8") as f:
+    #     midi_files = json.load(f)
+    # if max_idx is not None:
+    #     midi_files = midi_files[:max_idx]
+    # midi_files = [midi_file.replace('FixChannel10', 'rwc_chord').replace('SMF_SYNC', 'MIDI.CHORD') for midi_file in midi_files]
+    midi_files = []
+    if scan_subfolders:
+        for root, dirs, files in os.walk(folder):
+            for file in files:
+                if file.endswith('.mid') or file.endswith('.MID'):
+                    midi_files.append(os.path.join(root, file))
+    else:
+        for file in os.listdir(folder):
+            if file.endswith('.mid') or file.endswith('.MID'):
+                midi_files.append(os.path.join(folder, file))
     if max_idx is not None:
         midi_files = midi_files[:max_idx]
-    midi_files = [midi_file.replace('FixChannel10', 'rwc_chord').replace('SMF_SYNC', 'MIDI.CHORD') for midi_file in midi_files]
     print(f'Processing {len(midi_files)} files')
     results = Parallel(n_jobs=-1, verbose=10)(delayed(preprocess_midi)(midi_file, max_polyphony, ins_ids=ins_ids) for midi_file in midi_files)
     # Filter out None results
