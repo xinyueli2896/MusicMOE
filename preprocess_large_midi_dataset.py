@@ -104,7 +104,7 @@ def preprocess_midi(midi_path, max_polyphony, beat_div=4, ins_ids='all'):
     # Get song-level pitch shift range
     pitch_shift_max = 127 - max_pitch
     pitch_shift_min = -min_pitch
-    print(midi_path, ": final", torch.tensor(result_rolls.reshape(midi_end_time, -1)).shape, torch.tensor([pitch_shift_min, pitch_shift_max], dtype=torch.int8).shape)
+    # print(midi_path, ": final", torch.tensor(result_rolls.reshape(midi_end_time, -1)).shape, torch.tensor([pitch_shift_min, pitch_shift_max], dtype=torch.int8).shape)
     return torch.tensor(result_rolls.reshape(midi_end_time, -1)), torch.tensor([pitch_shift_min, pitch_shift_max], dtype=torch.int8)
 
 
