@@ -2,9 +2,9 @@
 
 Download midi dataset and place them under /data: [rwc pop](https://drive.google.com/file/d/1xeWFc_cfOReBoKbjeR1D0fUvO4mbzaae/view?usp=sharing).
 
-Create new conda env and run
+Install pretty midi before you start: 
 
-```pip install -r requirements.txt```
+```pip install pretty_midi```
 
 To preprocess the midi files into tensor (input to the model), run
 
