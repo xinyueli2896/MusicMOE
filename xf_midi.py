@@ -51,7 +51,7 @@ class XFMidi(pretty_midi.PrettyMIDI):
         # Update the array which maps ticks to time
         max_tick = max([max([e.time for e in t])
                         for t in midi_data.tracks]) + 1
-        print("max_tick", max_tick)
+        # print("max_tick", max_tick)
         # If max_tick is huge, the MIDI file is probably corrupt
         # and creating the __tick_to_time array will thrash memory
         if max_tick > pretty_midi.MAX_TICK:
@@ -261,7 +261,7 @@ class XFMidi(pretty_midi.PrettyMIDI):
                             if start_tick == end_tick]
 
                         for start_tick, velocity in notes_to_close:
-                            print("ticks", self._PrettyMIDI__tick_to_time)
+                            # print("ticks", self._PrettyMIDI__tick_to_time)
                             start_time = self._PrettyMIDI__tick_to_time[start_tick]
                             end_time = self._PrettyMIDI__tick_to_time[end_tick]
                             # print("times", start_time, end_tim)
