@@ -141,7 +141,7 @@ def parse_args():
 
 if __name__ == '__main__':
     args = parse_args()
-    create_npy_dataste_from_midi(args.midi_folder, 16, args.dataset_name)
+    create_npy_dataset_from_midi(args.midi_folder, 16, args.dataset_name)
 
     # why the tensors for single midi files are concat into one big tensor?
     # so that the tensor can be easily divided into equal length chunks later 
